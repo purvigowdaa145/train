@@ -1,0 +1,62 @@
+<style>
+    body {
+        background: hwb(240 92% 6%);
+        font-family: Arial, sans-serif;
+        color: #1680b9;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    
+    h1 {
+        background: #ab61b4;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    li {
+        background: #fff;
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    h4 {
+        margin: 0;
+        color: #fd6dc8;
+    }
+    
+    h6 {
+        margin: 10px 0 0;
+        color: #a51313;
+    }
+    
+    p {
+        margin: 10px 0 0;
+        color: #444;
+    }
+    </style>
+    <h1>List of books</h1>
+    <ul>
+        <a href ="{%url 'book_create'%}">Create new book</a>
+        {% for book in object_list %}
+    
+        <li>
+            <h4><a href ="{%url 'book_detail' book.pk%}" >{{book.title}} | {{ book.published_date}}</a></h4>
+            <a href ="{%url 'book_update' book.pk%}">Edit</a>
+            <a href ="{%url 'book_delete' book.pk%}">Delete</a>
+            <h6>{{book.author}}</h6>
+            <p>{{book.description}}</p>
+    
+        </li>
+        
+        {% endfor %}
+    </ul>

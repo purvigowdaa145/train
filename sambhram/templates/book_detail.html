@@ -1,0 +1,8 @@
+<li>
+    <h4><a href ="{%url 'book_detail' object.pk%}" >{{object.title}} | {{ object.published_date}}</a></h4>
+    <a href ="{%url 'book_update' object.pk%}">Edit</a>
+    <a href ="{%url 'book_delete' object.pk%}">Delete</a>
+    <h6>{{object.author}}</h6>
+    <p>{{object.description}}</p>
+
+</li>
